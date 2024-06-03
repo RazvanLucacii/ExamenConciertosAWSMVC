@@ -8,7 +8,7 @@ namespace ExamenConciertosAWSMVC.Helpers
     {
         public static async Task<string> GetSecretsAsync()
         {
-            string secretName = "secretoconciertos";
+            string secretName = "secretosconciertos";
             string region = "us-east-1";
             IAmazonSecretsManager client =
                 new AmazonSecretsManagerClient(RegionEndpoint.GetBySystemName(region));
