@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<ExamenConciertosAWSMVC.Models.Evento>
 
 @{
+    string UrlBucket = keysModel.BucketUrl;
+}
+
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -42,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.IdCategoria)
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Imagen)" style="width:200px; height:200px" />
+                <img src="@UrlBucket@item.Imagen" style="width:200px; height:200px" />
             </td>
         </tr>
 }

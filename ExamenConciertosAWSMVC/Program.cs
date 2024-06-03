@@ -1,4 +1,6 @@
+using ExamenConciertosAWSMVC.Models;
 using ExamenConciertosAWSMVC.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ServiceApiConciertos>();
+
+string jsonSecrets = await
+    HelperSecretManager.GetSecretsAsync();
+KeysModel keysModel =
+    JsonConvert.DeserializeObject<KeysModel>(jsonSecrets);
+builder.Services.AddSingleton<KeysModel>(x => keysModel);
 
 var app = builder.Build();
 

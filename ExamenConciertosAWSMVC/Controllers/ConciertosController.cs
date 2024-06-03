@@ -7,10 +7,12 @@ namespace ExamenConciertosAWSMVC.Controllers
     public class ConciertosController : Controller
     {
         private ServiceApiConciertos service;
+        private ServiceStorageAWS serviceStorage;
 
-        public ConciertosController(ServiceApiConciertos service)
+        public ConciertosController(ServiceApiConciertos service, ServiceStorageAWS serviceStorage)
         {
             this.service = service;
+            this.serviceStorage = serviceStorage;
         }
 
         public async Task<IActionResult> Index()
