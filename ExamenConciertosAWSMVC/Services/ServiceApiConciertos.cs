@@ -43,14 +43,14 @@ namespace ExamenConciertosAWSMVC.Services
 
         public async Task<List<Evento>> GetEventoAsync(int idcategoria)
         {
-            string request = "api/conciertos" + idcategoria;
+            string request = "api/conciertos/find/" + idcategoria;
             List<Evento> data = await this.CallApiAsync<List<Evento>>(request);
             return data;
         }
 
         public async Task<List<Categoria>> GetCategoriasAsync()
         {
-            string request = "api/conciertos";
+            string request = "api/conciertos/getcategorias";
             List<Categoria> data = await this.CallApiAsync<List<Categoria>>(request);
             return data;
         }

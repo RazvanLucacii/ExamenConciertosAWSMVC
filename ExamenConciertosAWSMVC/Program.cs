@@ -1,3 +1,4 @@
+using Amazon.S3;
 using ExamenConciertosAWSMVC.Helpers;
 using ExamenConciertosAWSMVC.Models;
 using ExamenConciertosAWSMVC.Services;
@@ -8,7 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAWSService<IAmazonS3>();
 builder.Services.AddTransient<ServiceApiConciertos>();
+builder.Services.AddTransient<ServiceStorageAWS>();
+
 
 string jsonSecrets = await
     HelperSecretManager.GetSecretsAsync();
